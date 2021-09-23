@@ -2,9 +2,13 @@ class PostsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
-        new_post = Post.create(content: params[:content])
+        @post = Post.create(content: params[:content])
 
-        render json: { post: new_post }
+        render 'posts/create.jbuilder'
+    end
+
+    def index
+        render json: { post: @post }
     end
 
 end
