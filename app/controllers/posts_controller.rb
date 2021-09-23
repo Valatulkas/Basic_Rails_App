@@ -4,11 +4,12 @@ class PostsController < ApplicationController
     def create
         @post = Post.create(content: params[:content])
 
-        render 'posts/create.jbuilder'
+        render json: { post: @post }
     end
 
     def index
-        render json: { post: @post }
+        @posts = Post.all
+        render 'index'
     end
 
 end

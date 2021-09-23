@@ -1,4 +1,4 @@
 json.post do
-  json.name @post.name
+  json.post @post.content
 end
 
